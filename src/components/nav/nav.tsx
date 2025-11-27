@@ -6,7 +6,7 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-transparent">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-transparent md:bg-navyDeep/90 lg:bg-navyDeep/90">
       <div className="max-w-full mx-auto px-4 md:px-6 flex items-center justify-between h-16">
         {/* Logo (izquierda, más grande en desktop) */}
         <div className="flex items-start md:items-center md:flex-1">
@@ -23,7 +23,7 @@ export default function Nav() {
 
         {/* Menú DESKTOP centrado */}
         <div className="hidden md:flex md:flex-1 justify-center">
-          <ul className="flex gap-8 text-inkBlue font-medium">
+          <ul className="flex gap-8 text-softGray font-medium">
             <li>
               <a href="#inicio" className="hover:opacity-70 transition">
                 Inicio
@@ -50,12 +50,13 @@ export default function Nav() {
         {/* Derecha: botón desktop + hamburguesa mobile */}
         <div className="flex items-center justify-end md:flex-1 gap-4">
           {/* Botón DESKTOP */}
-          <button
-            className="hidden md:inline-flex bg-navyDeep text-cloudGray px-4 py-2 rounded-3xl 
+          <a
+          href="#contacto"
+            className="hidden md:inline-flex  bg-inkBlue text-cloudGray px-4 py-2 rounded-3xl 
             hover:bg-skyBlue transition"
           >
             Contáctanos
-          </button>
+          </a>
 
           {/* Botón hamburguesa MOBILE */}
           <button
@@ -76,11 +77,11 @@ export default function Nav() {
           className="
             md:hidden
             absolute top-16 right-0
-            w-[40%]
+            w-[50%]
             bg-navyDeep/20 backdrop-blur-sm rounded-4xl
           "
         >
-          <div className="px-6 pt-3 pb-6 flex flex-col gap-3 text-softGray font-medium">
+          <div className="px-6 pt-3 pb-6 flex flex-col gap-3 text-softGray text-sm font-medium">
             <a
               href="#inicio"
               className="hover:opacity-70 transition text-outline-black"
@@ -88,30 +89,31 @@ export default function Nav() {
               Inicio
             </a>
             <a
-              href="#areas"
+              href="#service"
               className="hover:opacity-70 transition text-outline-black"
             >
               Áreas de práctica
             </a>
             <a
-              href="#estudio"
+              href="#about"
               className="hover:opacity-70 transition text-outline-black"
             >
               Nuestro estudio
             </a>
             <a
-              href="#miembros"
+              href="#team"
               className="hover:opacity-70 transition text-outline-black"
             >
               Miembros del equipo
             </a>
 
-            <button
+            <a
+              href="#contacto"
               className="mt-2 bg-navyDeep text-cloudGray px-4 py-2 rounded-3xl 
               hover:bg-skyBlue transition self-center"
             >
               Contáctanos
-            </button>
+            </a>
           </div>
         </div>
       )}

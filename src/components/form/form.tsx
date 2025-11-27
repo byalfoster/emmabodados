@@ -53,107 +53,124 @@ export const Form = () => {
     }
   };
 
-useEffect(() => {
-  if (!popup) return;
+  useEffect(() => {
+    if (!popup) return;
 
-  const timer = setTimeout(() => setPopup(null), TIMEOUTPOPUP);
+    const timer = setTimeout(() => setPopup(null), TIMEOUTPOPUP);
 
-  return () => clearTimeout(timer);
-}, [popup]);
-
+    return () => clearTimeout(timer);
+  }, [popup]);
 
   return (
-    <section className="relative grid place-content-center pt-22 pb-32">
-      <ImageUtils
-        src={allImages.fondoForm}
-        alt="Fondo formulario de contacto"
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      />
-
-      <div className="relative bg-navyDeep text-cloudGray p-4 rounded-t-lg text-center text-lg md:text-xl">
-        Envianos tu consulta
+    <section
+      id="contacto"
+      className="
+        relative 
+        w-full 
+        min-h-screen
+        grid place-content-center
+        py-16 pb-32
+        overflow-hidden
+      "
+    >
+      {/* Fondo full-area */}
+      <div className="absolute inset-0 -z-10">
+        <ImageUtils
+          src={allImages.fondoForm}
+          alt="Fondo formulario de contacto"
+          className="w-full h-full object-cover"
+        />
       </div>
-      <form
-        className="bg-cloudGray p-4 relative grid gap-8 md:w-[799px] w-[299px]"
-        onSubmit={handleSubmit}
-      >
-        <div className="flex flex-col">
+
+      {/* Contenido encima del fondo */}
+      <div className="relative">
+        <div className="bg-navyDeep text-cloudGray p-4 rounded-t-lg text-center text-lg md:text-xl">
+          Envianos tu consulta
+        </div>
+
+        <form
+          className="bg-cloudGray p-4 relative grid gap-8 md:w-[799px] w-[299px]"
+          onSubmit={handleSubmit}
+        >
+          <div className="flex flex-col">
+            <div className="flex flex-col pt-6">
+              <span className="font-semibold text-md sm:text-sm">
+                Nombre y empresa
+              </span>
+              <label className="pt-1">
+                <input
+                  type="text"
+                  name="nombre_empresa"
+                  placeholder="Ej. Julia - AYMA S.A."
+                  className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-full border-skyBlue text-center w-full"
+                  value={form.nombre_empresa}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
+            <div className="flex flex-col pt-6">
+              <span className="font-semibold text-md">E-mail</span>
+              <label className="pt-1">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Ej. julia@ayma.com"
+                  className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-full border-skyBlue text-center w-full"
+                  value={form.email}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
+            <div className="flex flex-col pt-6">
+              <span className="font-semibold">Telefono / Whatsapp</span>
+              <label className="p-1">
+                <input
+                  type="tel"
+                  name="telefono"
+                  placeholder="Ej. +54 9 11 1234 5678"
+                  className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-full border-skyBlue text-center w-full"
+                  value={form.telefono}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+          </div>
+
           <div className="flex flex-col pt-6">
-            <span className="font-semibold text-md sm:text-sm">
-              Nombre y empresa
-            </span>
+            <span className="font-semibold text-md">Motivo / Area</span>
             <label className="pt-1">
               <input
                 type="text"
-                name="nombre_empresa"
-                placeholder="Ej. Julia - AYMA S.A."
-                className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-full border-skyBlue text-center w-full"
-                value={form.nombre_empresa}
+                name="motivo"
+                placeholder="Compliance, Panel Económico"
+                className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-2xl border-skyBlue text-center w-full h-[200px]"
+                value={form.motivo}
                 onChange={handleChange}
               />
             </label>
           </div>
 
-          <div className="flex flex-col pt-6">
-            <span className="font-semibold text-md">E-mail</span>
-            <label className="pt-1">
-              <input
-                type="email"
-                name="email"
-                placeholder="Ej. julia@ayma.com"
-                className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-full border-skyBlue text-center w-full"
-                value={form.email}
-                onChange={handleChange}
-              />
-            </label>
+          <div className="flex flex-col pt-8 pb-6 md:col-span-2">
+            <button
+              type="submit"
+              className="bg-navyDeep text-softGray p-3 rounded-full mt-4 hover:bg-skyBlue transition-colors w-full md:w-1/3 md:mx-auto"
+            >
+              Enviar consulta
+            </button>
           </div>
-          <div className="flex flex-col pt-6">
-            <span className="font-semibold">Telefono / Whatsapp</span>
-            <label className="p-1">
-              <input
-                type="tel"
-                name="telefono"
-                placeholder="Ej. +54 9 11 1234 5678"
-                className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-full border-skyBlue text-center w-full"
-                value={form.telefono}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-        </div>
 
-        <div className="flex flex-col pt-6">
-          <span className="font-semibold text-md">Motivo / Area</span>
-          <label className="pt-1">
-            <input
-              type="text"
-              name="motivo"
-              placeholder="Compliance, Panel Económico"
-              className="overflow-x-auto whitespace-nowrap p-1 text-sm border rounded-2xl border-skyBlue text-center w-full h-[200px]"
-              value={form.motivo}
-              onChange={handleChange}
+          {popup && (
+            <Popup
+              title={popup.title}
+              message={popup.message}
+              type={popup.type}
+              onClose={() => setPopup(null)}
             />
-          </label>
-        </div>
-
-        <div className="flex flex-col pt-8 pb-6 md:col-span-2">
-          <button
-            type="submit"
-            className="bg-navyDeep text-softGray p-3 rounded-full mt-4 hover:bg-skyBlue transition-colors w-full md:w-1/3 md:mx-auto"
-          >
-            Enviar consulta
-          </button>
-        </div>
-
-        {popup && (
-          <Popup
-            title={popup.title}
-            message={popup.message}
-            type={popup.type}
-            onClose={() => setPopup(null)}
-          />
-        )}
-      </form>
+          )}
+        </form>
+      </div>
     </section>
   );
 };

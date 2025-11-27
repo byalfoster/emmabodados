@@ -1,12 +1,22 @@
-import { ServiceCard } from "./serviceCard";
-import { CardList } from "./cardList";
+import { ServiceCard } from "./ServiceCard";
+import { CardList } from "./CardList";
+import { allImages } from "@/types/imgtype";
 
 export const Services = () => {
   return (
     <section
       id="servicios"
-      className="w-full bg-cloudGray py-16 md:pt-35 pb-16"
+      className="relative w-full py-16 md:pt-35 pb-16 overflow-hidden"
     >
+      {/* Fondo full-area */}
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={allImages.fondoServices} // ajustá el nombre de la key si es distinto
+          alt="Fondo servicios"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
       <div className="w-full px-4 md:px-8">
         <h2
           data-aos="fade-up"
@@ -29,7 +39,11 @@ export const Services = () => {
         >
           {/* Primera fila */}
           <div
-            className="md:col-span-1"
+            className="
+              md:col-span-1
+              transition-transform duration-300
+              hover:scale-[1.03]
+            "
             data-aos="fade-up"
             data-aos-duration="600"
             data-aos-delay="0"
@@ -41,7 +55,11 @@ export const Services = () => {
           </div>
 
           <div
-            className="md:col-span-1"
+            className="
+              md:col-span-1
+              transition-transform duration-500 ease-out
+              hover:scale-[1.01]
+            "
             data-aos="fade-up"
             data-aos-duration="600"
             data-aos-delay="100"
@@ -53,7 +71,11 @@ export const Services = () => {
           </div>
 
           <div
-            className="md:col-span-1"
+            className="
+              md:col-span-1
+              transition-transform duration-500 ease-out
+              hover:scale-[1.01]
+            "
             data-aos="fade-up"
             data-aos-duration="600"
             data-aos-delay="200"
@@ -65,7 +87,11 @@ export const Services = () => {
           </div>
 
           <div
-            className="md:col-span-1"
+            className="
+              md:col-span-1
+              transition-transform duration-500 ease-out
+              hover:scale-[1.01]
+            "
             data-aos="fade-up"
             data-aos-duration="600"
             data-aos-delay="300"
@@ -78,7 +104,11 @@ export const Services = () => {
 
           {/* Segunda fila */}
           <div
-            className="md:col-span-4"
+            className="
+              md:col-span-4
+              transition-transform duration-500 ease-out
+              hover:scale-[1.01]
+            "
             data-aos="fade-up"
             data-aos-duration="700"
             data-aos-delay="400"

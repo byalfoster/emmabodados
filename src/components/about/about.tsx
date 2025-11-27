@@ -14,7 +14,8 @@ export const About = () => {
           />
         </div>
 
-        <div className="flex flex-col text-center pb-8 sm:mb-12 lg:mb-16">
+        {/* 👇 acá estaba el margin-bottom: lo cambiamos por padding-bottom */}
+        <div className="flex flex-col text-center pb-8 sm:pb-12 lg:pb-16">
           {/* Contenedor común para título + párrafo + grid */}
           <div className="relative p-4 sm:px-6 lg:px-8 lg:pt-20">
             {/* Título + texto */}
@@ -42,17 +43,18 @@ export const About = () => {
             {/* Grid de AboutCards: MISMO ancho que el texto */}
             <article
               className="
-              grid
-              grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-              gap-y-4
-              gap-x-[2px]
-              pt-4 sm:pt-6 lg:pt-1
-              justify-center
-              justify-items-center
+                grid
+                grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+                gap-y-4
+                gap-x-[2px]
+                pt-4 sm:pt-6 lg:pt-1
+                justify-center
+                justify-items-center
               "
             >
               {/* Izquierda – Etcheverry */}
               <div
+                className="transition-transform duration-500 ease-out hover:scale-[1.01]"
                 data-aos="fade-right"
                 data-aos-duration="300"
                 data-aos-easing="ease-in-sine"
@@ -68,6 +70,7 @@ export const About = () => {
 
               {/* Centro – Julieta */}
               <div
+                className="transition-transform duration-500 ease-out hover:scale-[1.01]"
                 data-aos="zoom-in"
                 data-aos-duration="600"
               >
@@ -86,6 +89,7 @@ Es autora de publicaciones académicas y ha participado como docente de posgrado
 
               {/* Derecha – Francisco */}
               <div
+                className="transition-transform duration-500 ease-out hover:scale-[1.01]"
                 data-aos="fade-left"
                 data-aos-duration="600"
               >

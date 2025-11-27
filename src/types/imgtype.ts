@@ -8,6 +8,7 @@ import pablo from "@/assets/img/pablo.webp"
 import heroImgMobile from "@/assets/img/heroImgMobile.webp"
 import nombres from "@/assets/img/nombres.png"
 import fondoForm from "@/assets/img/fondo-form.webp"
+import fondoServices from "@/assets/img/fondo services.webp"
 
 export type ImageT = {
     src: string;
@@ -27,4 +28,5 @@ export const allImages = {
     "nombres": nombres,
     "heroImgMobile": heroImgMobile,
     "fondoForm": fondoForm,
+    "fondoServices": fondoServices,
 }

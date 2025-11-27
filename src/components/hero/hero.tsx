@@ -42,7 +42,7 @@ export const Hero = () => {
             data-aos-once="false"              // 👈 se puede animar muchas veces
             data-aos-mirror="true"             // 👈 reacciona al salir/entrar
             data-aos-anchor-placement="top-bottom"
-            className="text-cloudGray text-3xl font-bold max-w-xs"
+            className="text-cloudGray text-1xl font-bold max-w-45"
           >
             {mobileTitle}
           </h1>

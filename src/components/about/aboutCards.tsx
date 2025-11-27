@@ -33,8 +33,8 @@ export const AboutCards = ({
         overflow-hidden
         shadow-lg hover:shadow-xl 
         transition-shadow duration-300
-        h-full              /* 👈 la card puede llenar la columna */
-        flex flex-col       /* 👈 imagen arriba, contenido abajo */
+        h-full
+        flex flex-col
       "
     >
       {/* Imagen full-width con overlay */}
@@ -70,37 +70,30 @@ export const AboutCards = ({
           px-4 pt-2 pb-4
           text-shadow-blue-950 
           text-left
-          flex-1            /* 👈 este bloque ocupa el resto, pero sin estirar raro internos */
+          flex-1
           flex flex-col
           gap-2
         "
       >
-        {/* Chips */}
-        <div className="flex flex-wrap gap-2">
-          {chip.map((chipText, index) => (
-            <span
-              key={index}
-              className="
-                inline-block 
-                text-navyDeep
-                px-3 py-1 
-                border border-skyBlue
-                rounded-full 
-                text-xs sm:text-sm 
-                whitespace-nowrap
-              "
-            >
-              {chipText}
-            </span>
-          ))}
-        </div>
-
-        {/* Descripción + botón (debajo de los chips, no pegado al fondo de la card) */}
-        <div className="pt-2 flex flex-col items-end gap-2">
-          <div className={showDescription ? "block" : "hidden sm:block"}>
-            <p className="text-xs sm:text-sm text-navyDeep leading-[1.2]">
-              {description}
-            </p>
+        {/* Chips + botón en la misma fila en mobile */}
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex flex-wrap gap-2">
+            {chip.map((chipText, index) => (
+              <span
+                key={index}
+                className="
+                  inline-block 
+                  text-navyDeep
+                  px-3 py-1 
+                  border border-skyBlue
+                  rounded-full 
+                  text-xs sm:text-sm 
+                  whitespace-nowrap
+                "
+              >
+                {chipText}
+              </span>
+            ))}
           </div>
 
           <button
@@ -109,12 +102,21 @@ export const AboutCards = ({
               text-amber-50
               rounded-full p-1 mt-1 w-24
               bg-gray-900
-              text-xs sm:text-sm
+              text-xs
             "
             onClick={() => setShowDescription(!showDescription)}
           >
             {showDescription ? "Ocultar" : "Ver perfil"}
           </button>
+        </div>
+
+        {/* Descripción debajo (mobile toggle, desktop siempre visible) */}
+        <div className="pt-2">
+          <div className={showDescription ? "block" : "hidden sm:block"}>
+            <p className="text-xs sm:text-sm text-navyDeep leading-[1.2]">
+              {description}
+            </p>
+          </div>
         </div>
 
         {children && <div className="mt-2 text-navyDeep">{children}</div>}
