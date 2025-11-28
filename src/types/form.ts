@@ -1,6 +1,6 @@
 export type FormType = {
   nombre_empresa: string;
   email: string;
-  telefono: number;
+  telefono: string;
   motivo: string;  
 };

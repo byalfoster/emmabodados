@@ -9,7 +9,7 @@ import { ImageUtils } from "@/utils/imgUtils";
 const initialState: FormType = {
   nombre_empresa: "",
   email: "",
-  telefono: Number(""),
+  telefono:"",
   motivo: "",
 };
 
