@@ -6,5 +6,5 @@ export { Footer } from './footer/footer';
 export { Logo } from './logo/logo';
 export { Form } from './form/form';
 export {Services} from "./cards/Services";
-export { CardList } from './cards/cardList';
-export { ServiceCard } from './cards/serviceCard';
+export { CardList } from './cards/CardList';
+export { ServiceCard } from './cards/ServiceCard';
